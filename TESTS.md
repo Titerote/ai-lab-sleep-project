@@ -25,9 +25,15 @@ as `~/.ai-lab-sleep/user/agent-memory/_main/ai-lab-sleep-project` (the
 dialog is accepted). Auto memory must be on (`/memory`, or no
 `CLAUDE_CODE_DISABLE_AUTO_MEMORY`); without it the `memory:` field does nothing.
 
-Nobody tells the agents what to note. `noter`/`checker` carry one line saying
-what their memory is for; Claude Code's own auto memory instructions decide
-the rest. If notes don't appear, that is a finding, not a prompt to fix.
+Nobody tells the agents what to note. Claude Code injects its own memory
+instructions when `memory:` is set. As an A/B, `noter` carries one extra line
+saying what its memory is for; `checker` carries nothing. T1 records whether
+each writes anything unprompted. If notes don't appear, that is a finding,
+not a prompt to fix.
+
+Memory is pushed to `main` by `ship.sh` only when a unit of work ends
+(SubagentStop, SessionEnd, the SessionStart catch-up) and by each dream
+phase; per-turn events ship transcripts only.
 
 ## T1 — hook mechanics and feedback paths (Mac)
 
@@ -46,7 +52,9 @@ Data points (from `probe/*.jsonl` and `~/.ai-lab-sleep/transcripts/<slug>/<sessi
 - [ ] `Stop` lag: lines in the shipped `main.jsonl` at Stop vs at the next UserPromptSubmit (ship.log timestamps + `wc -l` on the two copies, or compare commits in the transcripts repo)
 - [ ] `SessionEnd` fired with reason `clear` and then `other`/`prompt_input_exit`; did its ship push within the timeout?
 - [ ] transcripts repo layout: `main.jsonl`, `subagents/`, `probe/`, `manifest.json` present; `git log` shows one commit per push with the debounce honored
-- [ ] `~/.ai-lab-sleep/user/agent-memory/noter/` has something written by noter's auto memory (MEMORY.md and/or a topic file): what did it write, and did it say how it knew? (Unprompted — this is the research's "say what memory is for" test.)
+- [ ] `~/.ai-lab-sleep/user/agent-memory/noter/` has something written by noter's auto memory (MEMORY.md and/or a topic file): what did it write, and did it say how it knew?
+- [ ] same for `checker/` (no purpose line): did it write anything at all? (the A/B)
+- [ ] `memory:` commits on `ai-lab-sleep-user` appear only at SubagentStop/SessionEnd, none from Stop
 - [ ] `agent-memory/_main/ai-lab-sleep-project/MEMORY.md` exists and the main session recorded your step-2 correction there on its own (main-session auto memory, relocated)
 - [ ] did `noter` read its memory before answering on the second run? (look for a Read of its memory folder in the subagent transcript)
 
