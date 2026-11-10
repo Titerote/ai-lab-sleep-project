@@ -1,0 +1,46 @@
+{
+  "autoMemoryDirectory": "~/.ai-lab-sleep/user/agent-memory/_main/ai-lab-sleep-project",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR\"/scripts/sleep-bootstrap.sh", "timeout": 120 },
+          { "type": "command", "command": "bash \"$HOME\"/.ai-lab-sleep/user/scripts/probe.sh" }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"$HOME\"/.ai-lab-sleep/user/scripts/probe.sh" },
+          { "type": "command", "command": "bash \"$HOME\"/.ai-lab-sleep/user/scripts/ship.sh", "async": true, "timeout": 120 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"$HOME\"/.ai-lab-sleep/user/scripts/probe.sh" },
+          { "type": "command", "command": "SHIP_DELAY=6 bash \"$HOME\"/.ai-lab-sleep/user/scripts/ship.sh", "async": true, "timeout": 120 }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"$HOME\"/.ai-lab-sleep/user/scripts/probe.sh" },
+          { "type": "command", "command": "SHIP_DELAY=3 bash \"$HOME\"/.ai-lab-sleep/user/scripts/ship.sh", "async": true, "timeout": 120 }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"$HOME\"/.ai-lab-sleep/user/scripts/probe.sh", "timeout": 10 },
+          { "type": "command", "command": "bash \"$HOME\"/.ai-lab-sleep/user/scripts/ship.sh", "timeout": 50 }
+        ]
+      }
+    ]
+  }
+}
