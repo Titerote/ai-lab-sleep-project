@@ -37,10 +37,18 @@ What the lab must prove:
 ## T0 — install
 
 Mac: clone `ai-lab-sleep-user` to `~/.ai-lab-sleep/user`, run
-`scripts/install-mac.sh`, restart Claude Code. Cloud: paste
-`scripts/cloud-setup.sh` as the environment's setup script; network access
-Trusted (github.com is on the default allowlist). Clone this repo on the Mac;
+`scripts/install-mac.sh`, restart Claude Code. Clone this repo on the Mac;
 open it once and accept the workspace trust dialog so the repo hooks run.
+
+Cloud: create a **new cloud environment** on claude.ai/code (Desktop: pick
+"cloud" and manage environments) named `ai-lab-sleep`, network access
+Trusted, and paste the contents of `ai-lab-sleep-user/scripts/cloud-setup.sh`
+into its **setup script** field. Nothing runs on the Mac for this. The
+script runs as root on the VM before Claude Code launches, clones the user
+and transcripts repos (they must exist on GitHub with the Claude GitHub App
+installed) and makes the `/root/.claude/agents` symlink; the first session
+snapshots the result, later sessions start from the snapshot and the
+project's SessionStart hook pulls both repos fresh.
 
 Check: `ls -la ~/.claude/agents` shows the symlink; in a session (any
 surface) ask "which subagents are available?" and expect `noter`, `checker`,
