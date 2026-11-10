@@ -30,7 +30,7 @@
       {
         "hooks": [
           { "type": "command", "command": "bash \"$HOME\"/.ai-lab-sleep/user/scripts/probe.sh" },
-          { "type": "command", "command": "SHIP_DELAY=3 bash \"$HOME\"/.ai-lab-sleep/user/scripts/ship.sh", "async": true, "timeout": 120 }
+          { "type": "command", "command": "SHIP_DELAY=0 bash \"$HOME\"/.ai-lab-sleep/user/scripts/ship.sh", "timeout": 60 }
         ]
       }
     ],
