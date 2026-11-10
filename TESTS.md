@@ -35,6 +35,23 @@ Memory is pushed to `main` by `ship.sh` only when a unit of work ends
 (SubagentStop, SessionEnd, the SessionStart catch-up) and by each dream
 phase; per-turn events ship transcripts only.
 
+## T0b — memory toggles (Mac and cloud)
+
+Mac: in a session on this repo, `/memory` → auto memory on? folder =
+`~/.ai-lab-sleep/user/agent-memory/_main/ai-lab-sleep-project`? Flip the
+desktop app's memory setting off and on and confirm `/memory` follows it.
+`echo $CLAUDE_CODE_DISABLE_AUTO_MEMORY` must be empty.
+
+Cloud: `/memory` may not render (terminal picker). Use `/context` and look
+for a `MEMORY.md` under Memory files, and its path. Then the positive probe
+in both environments: "For next time: the descaler we use is the citric
+sachets." → does a file appear under the configured folder (Mac) /
+`/root/.ai-lab-sleep/...` or `/root/.claude/projects/*/memory/` (cloud)?
+The write is a Write tool call in the transcript, so the shipper captures it.
+
+- [ ] Mac: toggle honored; folder is the relocated one
+- [ ] cloud: auto memory active at all? which path? (`autoMemoryDirectory` from repo settings honored without a trust dialog?)
+
 ## T1 — hook mechanics and feedback paths (Mac)
 
 One session in this repo. Script:
@@ -57,6 +74,23 @@ Data points (from `probe/*.jsonl` and `~/.ai-lab-sleep/transcripts/<slug>/<sessi
 - [ ] `memory:` commits on `ai-lab-sleep-user` appear only at SubagentStop/SessionEnd, none from Stop
 - [ ] `agent-memory/_main/ai-lab-sleep-project/MEMORY.md` exists and the main session recorded your step-2 correction there on its own (main-session auto memory, relocated)
 - [ ] did `noter` read its memory before answering on the second run? (look for a Read of its memory folder in the subagent transcript)
+
+## T1b — which context owns which memory (Mac)
+
+Memory belongs to the definition a context runs under, not to "main vs
+subagent". Ask the same question ("How often should I descale?") four ways,
+each in a fresh session, and after each run `git -C ~/.ai-lab-sleep/user
+status --short agent-memory` to see which folder changed:
+
+| case | how | expected writer |
+|---|---|---|
+| vanilla session | just ask, tell Claude not to delegate | `_main/ai-lab-sleep-project/` |
+| fork | `/subtask How often should I descale?` | `_main/...` (inherits the main prompt) |
+| subagent | "ask noter" | `noter/` |
+| session as agent | `claude --agent noter` then ask | **unknown** — `noter/`, `_main/`, both, or none |
+
+- [ ] record the writer for each; the fourth row decides whether "open a session as an agent" keeps that agent's memory
+- [ ] a subagent without `memory:` (ask the built-in general-purpose agent) writes nowhere — confirm
 
 ## T2 — cloud pause vs reclaim (background)
 
