@@ -38,3 +38,5 @@
 {"type":"file-history-snapshot","messageId":"96fdf61b-05a3-4893-be15-c9b926abd870","snapshot":{"messageId":"96fdf61b-05a3-4893-be15-c9b926abd870","trackedFileBackups":{},"timestamp":"2026-11-11T11:48:27.710Z"},"isSnapshotUpdate":false}
 {"type":"last-prompt","lastPrompt":"Which lab markers can you see?","leafUuid":"2ffcbf28-68ad-4682-a857-bdc01c967bcd","sessionId":"edfe0f20-781c-469f-b262-23d97bc68f33"}
 {"type":"cost-state","sessionId":"edfe0f20-781c-469f-b262-23d97bc68f33","totalCostUSD":0.046378,"totalAPIDuration":12567,"totalAPIDurationWithoutRetries":12566,"totalToolDuration":0,"totalLinesAdded":0,"totalLinesRemoved":0,"totalDuration":79880,"startTime":1794397627833,"modelUsage":{"claude-sonnet-5-5":{"inputTokens":2,"outputTokens":411,"thinkingTokens":132,"cacheReadInputTokens":0,"cacheCreationInputTokens":10566,"cacheCreationEphemeral5mInputTokens":0,"cacheCreationEphemeral1hInputTokens":10566,"webSearchRequests":0,"costUSD":0.046378}},"hasUnknownModelCost":false}
+{"type":"agent-setting","agentSetting":"noter","sessionId":"edfe0f20-781c-469f-b262-23d97bc68f33"}
+{"type":"mode","mode":"normal","sessionId":"edfe0f20-781c-469f-b262-23d97bc68f33"}
