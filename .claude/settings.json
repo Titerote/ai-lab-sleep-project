@@ -21,6 +21,7 @@
         "matcher": "startup|resume|clear",
         "hooks": [
           { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR\"/scripts/sleep-bootstrap.sh", "timeout": 120 },
+          { "type": "command", "command": "bash \"$HOME\"/.ai-lab-sleep/user/scripts/inject-memory.sh" },
           { "type": "command", "command": "bash \"$HOME\"/.ai-lab-sleep/user/scripts/probe.sh" }
         ]
       }
