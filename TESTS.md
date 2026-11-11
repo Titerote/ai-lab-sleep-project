@@ -98,13 +98,13 @@ One session in this repo, once from the CLI and once from the Desktop app
 4. **(CLI, agent view)** open noter's transcript panel and type a correction directly to it: "Also: with the filter installed water.md says 300." (direct feedback path). On Desktop, if there is no way to address the subagent directly, skip and note it.
 5. `/clear`, then ask one more trivial question, then end the session (CLI: exit; Desktop: close the session).
 
-Data points (from `probe/*.jsonl` and `~/.ai-lab-sleep/transcripts/<slug>/<session>/`):
+Data points (from `probe/*.jsonl` and `~/.ai-lab-sleep/tx/<slug>/<session>/` (the project's `sleep/transcripts` branch)):
 - [ ] SubagentStop carries `agent_transcript_path`, `agent_id`, `agent_type` (= `noter` / `checker`)
 - [ ] step 2: new `agent-<id>.jsonl` or the same file appended? (compare ids)
 - [ ] step 2 correction appears in `main.jsonl`; step 4 correction appears in the subagent file
 - [ ] `Stop` lag: lines in the shipped `main.jsonl` at Stop vs at the next UserPromptSubmit (ship.log timestamps + `wc -l` on the two copies, or compare commits in the transcripts repo)
 - [ ] `SessionEnd` fired with reason `clear` and then `other`/`prompt_input_exit`; did its ship push within the timeout? Desktop: does closing a session fire `SessionEnd` at all, and with which reason?
-- [ ] transcripts repo layout: `main.jsonl`, `subagents/`, `probe/`, `manifest.json` present; `git log` shows one commit per push with the debounce honored
+- [ ] `sleep/transcripts` branch on the project repo: `main.jsonl`, `subagents/`, `probe/`, `manifest.json` under `<session>/`; `git log origin/sleep/transcripts` shows one commit per push with the debounce honored; `main` untouched
 - [ ] `~/.ai-lab-sleep/user/agent-memory/noter/` has something written by noter's auto memory (MEMORY.md and/or a topic file): what did it write, and did it say how it knew?
 - [ ] same for `checker/` (no purpose line): did it write anything at all? (the A/B)
 - [ ] `memory:` commits on `ai-lab-sleep-user` appear only at SubagentStop/SessionEnd, none from Stop
@@ -138,7 +138,7 @@ wait for the answer, leave. Reopen one after 1 h, 6 h, 24 h, 72 h.
 - [ ] on reopen: were `probe/*.jsonl` still on disk (restored VM) or gone with "Run setup script" shown (rebuilt)?
 - [ ] `probe/SessionStart.jsonl` on reopen: `source` value
 - [ ] did any `SessionEnd` fire before the pause/reclaim? (expect none)
-- [ ] transcripts repo: did the async Stop ship land before you left? (`git log` time vs your last message)
+- [ ] `sleep/transcripts`: did the async Stop ship land before you left? (`git log` time vs your last message)
 - [ ] write down the pause→reclaim boundary you observed
 
 ## T3 — user-level agents and access in the cloud
@@ -150,9 +150,8 @@ the Desktop app with the cloud environment selected once):
 - [ ] "Ask noter whether it can see MARKER-CLAUDE-MD" → quotes `lab-7f3a` (project CLAUDE.md reaches a user-level subagent)
 - [ ] `CLAUDE_CODE_REMOTE` is `"true"` in the probe records
 - [ ] T0b's two probes in the cloud: `lab-c3e8` visible? write landed under `/root/.ai-lab-sleep/user/agent-memory/_main/...` or under `/root/.claude/projects/`? If it wrote to the relocated path, the next SubagentStop/SessionEnd ship pushes it (`git log` on `ai-lab-sleep-user` shows a `memory:` commit from host `vm`).
-- [ ] ask Claude to run `git -C ~/.ai-lab-sleep/transcripts log -1` and `git -C ~/.ai-lab-sleep/user pull`: both repos reachable through the proxy without being attached to the session
-- [ ] ask Claude to `git clone https://github.com/Titerote/ai-coach-assistant /tmp/x` (a repo with the Claude GitHub App installed) and one without: which succeeds? This decides dynamic project access for the dreamer.
-- [ ] ask Claude to push a trivial commit to `ai-lab-sleep-transcripts` from the VM: does the proxy allow writes to a non-attached repo?
+- [x] 2026-11-10/11: reads/clones of App-installed repos work through the proxy without attaching; writes to a non-attached repo are refused (403 before credentials), with or without a PAT; attaching several repos disables the project's hooks. Hence transcripts ship to the project's own `sleep/transcripts` branch.
+- [ ] `cat ~/.ai-lab-sleep/ship.log` shows `pushed transcripts → sleep/transcripts` from the cloud, and `git log origin/sleep/transcripts` on the project repo shows the VM's commits
 
 ## T5 — a hand-run dream (CLI)
 

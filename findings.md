@@ -10,3 +10,6 @@
 | 2026-11-10 | T1/T3 | 2.1.322 | cloud | SubagentStop carries agent_transcript_path under <session>/subagents/, but the directory is absent afterwards and the ship 27 s later found nothing; main transcript captured |
 | 2026-11-10 | T0 | 2.1.322 | Desktop+cloud | no terminal in this view; observations via the session's Bash tool |
 | 2026-11-10 | T3 | 2.1.322 | Desktop+cloud | session with 3 repos attached: cwd is /home/user with repos beneath; repo .claude/settings.json hooks did not run (no probe files, no ship.log) — multi-repo sessions disable project hooks |
+| 2026-11-11 | T3 | 2.1.322 | cloud | fresh VM, single repo: SubagentStop agent_transcript_path exists at hook time (44 KB); synchronous ship captured it — yesterday's absence was later cleanup |
+| 2026-11-11 | T3 | 2.1.322 | cloud | noter (memory: user) sees CLAUDE.md + rule markers, not its MEMORY.md marker: subagent auto memory also off in the cloud |
+| 2026-11-11 | T3 | 2.1.322 | cloud | PAT in env + credential helper configured; push still 403 from the proxy before any credential is sent; api.github.com 403 too. Token route dead → transcripts to project's sleep/transcripts orphan branch |
