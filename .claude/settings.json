@@ -1,5 +1,12 @@
 {
   "autoMemoryDirectory": "~/.ai-lab-sleep/user/agent-memory/_main/ai-lab-sleep-project",
+  "permissions": {
+    "allow": [
+      "Read(~/.ai-lab-sleep/user/agent-memory/**)",
+      "Edit(~/.ai-lab-sleep/user/agent-memory/**)",
+      "Write(~/.ai-lab-sleep/user/agent-memory/**)"
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {
