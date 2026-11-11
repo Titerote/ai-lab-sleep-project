@@ -7,7 +7,7 @@
   "branch": "main",
   "claude_code_remote": null,
   "host": "Mac-Studio.local",
-  "last_event": "SubagentStop",
-  "last_shipped": "2026-11-11T17:27:53+00:00",
+  "last_event": "SessionEnd",
+  "last_shipped": "2026-11-11T17:55:58+00:00",
   "first_shipped": "2026-11-11T17:27:36+00:00"
 }
