@@ -9,3 +9,4 @@
 | 2026-11-10 | T2 | 2.1.322 | cloud | SessionEnd reason=other fired ~4.5 min after last Stop (idle pause); SessionStart source=resume 45 min later on the same VM, files intact; seconds_since_last_response in resume input |
 | 2026-11-10 | T1/T3 | 2.1.322 | cloud | SubagentStop carries agent_transcript_path under <session>/subagents/, but the directory is absent afterwards and the ship 27 s later found nothing; main transcript captured |
 | 2026-11-10 | T0 | 2.1.322 | Desktop+cloud | no terminal in this view; observations via the session's Bash tool |
+| 2026-11-10 | T3 | 2.1.322 | Desktop+cloud | session with 3 repos attached: cwd is /home/user with repos beneath; repo .claude/settings.json hooks did not run (no probe files, no ship.log) — multi-repo sessions disable project hooks |
