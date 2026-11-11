@@ -1,0 +1,13 @@
+{
+  "project": "ai-lab-sleep-project",
+  "session_id": "f1eb9a45-ebb0-5459-ad0e-2a1756fa35d3",
+  "cwd": "/home/user/ai-lab-sleep-project",
+  "remote": "https://github.com/Titerote/ai-lab-sleep-project",
+  "commit": "f6884f07d72ac71d717a9035651fc883f3cc9473",
+  "branch": "claude/elegant-mendel-etu7ro",
+  "claude_code_remote": "true",
+  "host": "vm",
+  "last_event": "UserPromptSubmit",
+  "last_shipped": "2026-11-11T11:22:30+00:00",
+  "first_shipped": "2026-11-11T11:22:30+00:00"
+}
