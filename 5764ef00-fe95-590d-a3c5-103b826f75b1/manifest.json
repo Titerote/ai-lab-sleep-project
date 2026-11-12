@@ -7,7 +7,7 @@
   "branch": "ccr-80106e85-dcpl33",
   "claude_code_remote": "true",
   "host": "vm",
-  "last_event": "SubagentStop",
-  "last_shipped": "2026-11-12T05:43:15+00:00",
+  "last_event": "UserPromptSubmit",
+  "last_shipped": "2026-11-12T05:43:18+00:00",
   "first_shipped": "2026-11-12T05:40:51+00:00"
 }

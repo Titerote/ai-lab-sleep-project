@@ -1,1 +1,1 @@
-{"agentType":"noter","isBuiltIn":false,"description":"Ask noter about lab markers","toolUseId":"toolu_01SrPPXeqhusGuu9cvhPWD4C","spawnDepth":1,"requestShape":"foreground","requestNonInteractive":true,"pickedEffortModel":"claude-opus-5-5"}
+{"agentType":"noter","isBuiltIn":false,"description":"Ask noter about lab markers","toolUseId":"toolu_01SrPPXeqhusGuu9cvhPWD4C","spawnDepth":1,"requestShape":"foreground","requestNonInteractive":true,"pickedEffortModel":"claude-opus-5-5","finished":true}
