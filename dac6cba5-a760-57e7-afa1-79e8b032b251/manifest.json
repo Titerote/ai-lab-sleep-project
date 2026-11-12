@@ -7,7 +7,7 @@
   "branch": "claude/wonderful-maxwell-fd7mqr",
   "claude_code_remote": "true",
   "host": "vm",
-  "last_event": "SubagentStop",
-  "last_shipped": "2026-11-12T07:56:06+00:00",
+  "last_event": "UserPromptSubmit",
+  "last_shipped": "2026-11-12T07:56:09+00:00",
   "first_shipped": "2026-11-12T07:55:49+00:00"
 }
