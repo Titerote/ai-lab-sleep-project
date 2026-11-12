@@ -7,7 +7,7 @@
   "branch": "main",
   "claude_code_remote": null,
   "host": "Mac-Studio.local",
-  "last_event": "UserPromptSubmit",
-  "last_shipped": "2026-11-12T04:49:08+00:00",
+  "last_event": "Stop",
+  "last_shipped": "2026-11-12T04:54:42+00:00",
   "first_shipped": "2026-11-11T11:48:38+00:00"
 }
