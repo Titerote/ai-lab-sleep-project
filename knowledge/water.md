@@ -7,8 +7,9 @@ date on the cartridge sleeve.
 
 ## Effect on descaling
 
-With the filter installed and changed on time, descaling every 300 shots is
-enough. Without the filter (tap water), follow the schedule in descaling.md.
+Descale every 150 shots whether or not the filter is installed; see
+descaling.md. (Changed 2026-11-12 from 300 shots with the filter, on the
+user's instruction.)
 
 ## Hardness
 
