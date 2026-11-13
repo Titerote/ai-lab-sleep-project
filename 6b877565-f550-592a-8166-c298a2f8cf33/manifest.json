@@ -7,7 +7,7 @@
   "branch": "claude/thorne-joint-support-ingredient-frcbqu",
   "claude_code_remote": "true",
   "host": "vm",
-  "last_event": "UserPromptSubmit",
-  "last_shipped": "2026-11-13T10:53:44+00:00",
+  "last_event": "SubagentStop",
+  "last_shipped": "2026-11-13T10:54:03+00:00",
   "first_shipped": "2026-11-13T10:53:44+00:00"
 }
