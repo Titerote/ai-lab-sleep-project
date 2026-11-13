@@ -7,7 +7,7 @@
   "branch": "claude/vigilant-lovelace-belb5r",
   "claude_code_remote": "true",
   "host": "vm",
-  "last_event": "SubagentStop",
-  "last_shipped": "2026-11-13T09:25:30+00:00",
+  "last_event": "SessionEnd",
+  "last_shipped": "2026-11-13T09:29:07+00:00",
   "first_shipped": "2026-11-13T09:17:52+00:00"
 }
