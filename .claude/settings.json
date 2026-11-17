@@ -1,10 +1,59 @@
 {
   "autoMemoryDirectory": "~/.ai-lab-sleep/user/agent-memory/_main/ai-lab-sleep-project",
   "permissions": {
-    "allow": [
-      "Read(~/.ai-lab-sleep/user/agent-memory/**)",
-      "Edit(~/.ai-lab-sleep/user/agent-memory/**)",
-      "Write(~/.ai-lab-sleep/user/agent-memory/**)"
+    "Read(~/.ai-lab-sleep/**)",
+    "Edit(~/.ai-lab-sleep/user/agent-memory/**)",
+    "Write(~/.ai-lab-sleep/user/agent-memory/**)",
+    "Edit(~/.ai-lab-sleep/user/agents/**)",
+    "Edit(~/.ai-lab-sleep/user/scripts/**)",
+    "Edit(~/.ai-lab-sleep/user/MEMORY-FORMAT.md)",
+    "Edit(~/.ai-lab-sleep/user/dream-state.json)",
+    "Write(~/.ai-lab-sleep/user/.dream-phase)",
+    "Edit(tests/**)",
+    "Write(tests/**)",
+    "Edit(findings.md)",
+    "Edit(.claude/**)",
+    "Edit(scripts/**)",
+
+    "Bash(git pull:*)",
+    "Bash(git fetch:*)",
+    "Bash(git log:*)",
+    "Bash(git status:*)",
+    "Bash(git diff:*)",
+    "Bash(git rev-parse:*)",
+    "Bash(git add:*)",
+    "Bash(git mv:*)",
+    "Bash(git commit:*)",
+    "Bash(git push:*)",
+    "Bash(git -C:*)",
+    "Bash(git -c:*)",
+
+    "Bash(python3 \"$U/scripts/bet-dossier.py\":*)",
+    "Bash(python3 ~/.ai-lab-sleep/user/scripts/bet-dossier.py:*)",
+    "Bash(python3 scripts/bet-dossier.py:*)",
+    "Bash(\"$U/scripts/notes-ledger.sh\")",
+    "Bash(~/.ai-lab-sleep/user/scripts/notes-ledger.sh)",
+    "Bash(scripts/notes-ledger.sh)",
+
+    "Bash(grep:*)",
+    "Bash(tail:*)",
+    "Bash(head:*)",
+    "Bash(ls:*)",
+    "Bash(cat:*)",
+    "Bash(awk:*)",
+    "Bash(sed -n:*)",
+    "Bash(wc:*)",
+    "Bash(date:*)",
+    "Bash(echo:*)",
+    "Bash(printf:*)",
+    "Bash(basename:*)",
+    "Bash(mkdir -p tests/results)",
+    "Bash(sleep:*)",
+    "Bash(rm -f ~/.ai-lab-sleep/user/.dream-phase)",
+    "Bash(rm -f \"$SLEEP_HOME/user/.dream-phase\")",
+    "Bash(rm -f \"$U/.dream-phase\")"
+
+
     ]
   },
   "hooks": {
