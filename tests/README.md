@@ -11,6 +11,19 @@ Results land in `tests/results/<id>-<date>.md` and one row in
 `findings.md`. The runner may fix the lab (dreamer prompts, scripts, hooks)
 between loops; it may never change a test's checks or hand-edit memory.
 
+Agent definitions (`agents/*.md`) load when a session starts, so a fix to
+a dreamer prompt cannot be exercised by the session that made it. The
+outer loop handles that:
+
+```
+tests/run.sh T6-fresh-locators 3 45
+```
+
+starts a fresh runner session per attempt (headless, on a pty), waits for
+its committed result file (`tests/results/<id>-<date>-a<n>.md`), closes
+the session so the transcript ships, and stops at the first pass or after
+the attempt budget.
+
 ## Format
 
 ```markdown

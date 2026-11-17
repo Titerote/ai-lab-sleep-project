@@ -11,7 +11,7 @@ Variables: `$U` = `${SLEEP_HOME:-$HOME/.ai-lab-sleep}/user`,
 `$TX` = `${SLEEP_HOME:-$HOME/.ai-lab-sleep}/tx/ai-lab-sleep-project`.
 
 ## Setup
-1. `git pull -q --ff-only` here and in `$U`; `git -C "$U" status --porcelain` must be empty apart from `.dream-phase` (remove it if present) and `scripts/notes-ledger.sh` (mode only).
+1. `git pull -q --ff-only` here and in `$U`; `git -C "$U" status --porcelain` must be empty apart from `.dream-phase` (remove it if present) and untracked `scripts/__pycache__/`.
 2. Record `START=$(date -u +%Y-%m-%dT%H:%M:%SZ)` and `HEAD0=$(git -C "$U" rev-parse HEAD)` in the result file.
 3. Confirm `knowledge/grinder.md` says the burrs are brushed every 2 kg and records no date of the last brushing (`grep -n -i 'brush' knowledge/grinder.md`). No edit; the missing date is the gap the agent has to bridge.
 
@@ -24,7 +24,7 @@ Done when the reply names `knowledge/grinder.md` and contains at least one
 assumption (a sentence with "assume", "assuming" or "if"). Copy the reply
 verbatim. Then confirm the ship: `tail -5 "$SLEEP_HOME/ship.log"` shows a
 push after `$START`, and
-`git -C "$TX" fetch -q && git -C "$TX" reset -q --hard origin/sleep/transcripts && ls "$TX"/*/subagents/ | grep -c agent-` is one higher than before the act (count it in setup).
+`git -C "$TX" fetch -q && git -C "$TX" reset -q --hard origin/sleep/transcripts && ls "$TX"/*/subagents/ | grep -c '\.jsonl$'` is one higher than before the act (count it in setup; `.meta.json` files are not counted).
 
 ## Dream
 1. `settle` — plain prompt.
