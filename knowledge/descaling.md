@@ -2,7 +2,7 @@
 
 ## Schedule
 
-Descale the boiler every 200 shots. Count shots on the machine's counter; it
+Descale the boiler every 150 shots. Count shots on the machine's counter; it
 resets when you hold the brew button for five seconds.
 
 ## Procedure
@@ -15,5 +15,5 @@ resets when you hold the brew button for five seconds.
 ## Changes
 
 - 2026-10-02: schedule changed from 200 to **150 shots** after scale was found
-  at 180 shots on the tap-water setup. The Schedule section above has not been
-  rewritten yet.
+  at 180 shots on the tap-water setup.
+- 2026-11-17: Schedule section rewritten to 150 shots (user decision).
