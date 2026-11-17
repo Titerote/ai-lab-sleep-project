@@ -1,0 +1,13 @@
+{
+  "project": "ai-lab-sleep-project",
+  "session_id": "4c10eb5f-3611-438a-b64a-40989367dbfd",
+  "cwd": "/Users/tite/Code/ai-lab-sleep-project",
+  "remote": "https://github.com/Titerote/ai-lab-sleep-project.git",
+  "commit": "ccf8f21c808d33231a48d946bc36c35aeaa6f3b6",
+  "branch": "main",
+  "claude_code_remote": null,
+  "host": "Mac-Studio.local",
+  "last_event": "UserPromptSubmit",
+  "last_shipped": "2026-11-17T22:55:48+00:00",
+  "first_shipped": "2026-11-17T22:55:48+00:00"
+}
