@@ -1,1 +1,1 @@
-{"agentType":"dreamer-settle","isBuiltIn":false,"launchedWithDefaults":true,"description":"dreamer settle phase","toolUseId":"toolu_01Y416MdEBNEFGdEr4yZmGLT","spawnDepth":1,"requestShape":"background","requestNonInteractive":true,"pickedEffortModel":"claude-opus-5-5"}
+{"agentType":"dreamer-settle","isBuiltIn":false,"launchedWithDefaults":true,"description":"dreamer settle phase","toolUseId":"toolu_01Y416MdEBNEFGdEr4yZmGLT","spawnDepth":1,"requestShape":"background","requestNonInteractive":true,"pickedEffortModel":"claude-opus-5-5","finished":true}
